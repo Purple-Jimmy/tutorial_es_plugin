@@ -8,6 +8,7 @@ import org.elasticsearch.index.analysis.AbstractTokenizerFactory;
 
 /**
  * 分词器工厂,继承AbstractTokenizerFactory,通过重写create方法返回自定义的分词器
+ * 作用:产生分词器类的实例
  * @Author: jimmy
  * @Date: 2019/2/12
  */
