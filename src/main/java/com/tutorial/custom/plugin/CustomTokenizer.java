@@ -18,7 +18,7 @@ public class CustomTokenizer extends Tokenizer {
 
     private final static String PUNCTION = " -()/";
     private final StringBuilder buffer = new StringBuilder();
-    private int suffixOffset;
+    private int suffixOffset = 0;
     private int tokenStart = 0, tokenEnd = 0;
     private final CharTermAttribute termAtt = addAttribute(CharTermAttribute.class);
     private final OffsetAttribute offsetAtt = addAttribute(OffsetAttribute.class);
@@ -56,15 +56,15 @@ public class CustomTokenizer extends Tokenizer {
                     offsetAtt.setOffset(correctOffset(tokenStart),
                             correctOffset(tokenEnd));
                     return true;
-                }else
-                {
+                }else{
                     ci = input.read();
                     if(ci>64&&ci<91){
                         ci=ci+32;
                     }
                     ch = (char) ci;
                 }
-            } else {
+            }
+            else {
                 buffer.append(ch);
                 tokenEnd++;
                 ci = input.read();

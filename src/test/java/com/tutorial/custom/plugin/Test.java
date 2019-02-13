@@ -1,8 +1,5 @@
 package com.tutorial.custom.plugin;
 
-import org.apache.lucene.analysis.TokenStream;
-import org.apache.lucene.analysis.tokenattributes.CharTermAttribute;
-
 import java.io.IOException;
 
 /**
@@ -10,9 +7,9 @@ import java.io.IOException;
  * @Date: 2019/2/12
  */
 public class Test {
-
+    private final static String PUNCTION = " ";
     public static void main(String[] args) throws IOException {
-        CustomAnalyzer analyzer = new CustomAnalyzer();
+       /* CustomAnalyzer analyzer = new CustomAnalyzer();
         TokenStream ts = analyzer.tokenStream("text", "我爱北京 天安门");
         CharTermAttribute term = ts.addAttribute(CharTermAttribute.class);
         ts.reset();
@@ -20,6 +17,13 @@ public class Test {
             System.out.println(term.toString());
         }
         ts.end();
-        ts.close();
+        ts.close();*/
+       String str = "我爱北京 天安门";
+       char[] array = str.toCharArray();
+       for(char c:array){
+           System.out.println(PUNCTION.indexOf(c));
+       }
+
+
     }
 }
